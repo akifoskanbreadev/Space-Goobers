@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monster Clicker!</title>
+    <style>
+        body { text-align: center; font-family: 'Arial', sans-serif; background: #e0f7fa; color: #333; }
+        h1 { color: #00796b; margin-top: 50px; }
+        #monster { font-size: 80px; cursor: pointer; transition: transform 0.1s; display: inline-block; user-select: none; }
+        #monster:active { transform: scale(0.9); }
+        .score-board { font-size: 24px; font-weight: bold; margin: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>👾 Click the Monster! 👾</h1>
+    <div class="score-board">Score: <span id="score">0</span></div>
+    <div id="monster">👾</div>
+
+    <script>
+        let score = 0;
+        const scoreDisplay = document.getElementById('score');
+        const monster = document.getElementById('monster');
+
+        // Fun emojis the monster can transform into
+        const monsters = ['👾', '👹', '👻', '👽', '🤖', '🐉'];
+
+        monster.addEventListener('click', () => {
+            score++;
+            scoreDisplay.textContent = score;
+            
+            // Randomly change the monster appearance
+            const randomIndex = Math.floor(Math.random() * monsters.length);
+            monster.textContent = monsters[randomIndex];
+        });
+    </script>
+</body>
+</html>
